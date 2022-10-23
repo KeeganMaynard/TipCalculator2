@@ -82,13 +82,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        modifyLayout(newConfig);
+    }
+
     public void modifyLayout(Configuration newConfiguration)
     {
         if(newConfiguration.orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
             setContentView(R.layout.activity_main_landscape);
         }
-        else{
+        else if(newConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT){
             setContentView(R.layout.activity_main);
         }
     }
