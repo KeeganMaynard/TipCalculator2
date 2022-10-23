@@ -1,5 +1,6 @@
 package com.keegan.android.tipcalculator2;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         tipCalc = new TipCalculator( 0.17f, 100.0f );
-        setContentView( R.layout.activity_main );
+        Configuration config = getResources().getConfiguration();
+        modifyLayout(config);
 
         billEditText = ( EditText ) findViewById( R.id.amount_bill );
         partyEditText = (EditText) findViewById(R.id.party_size);
@@ -77,6 +79,17 @@ public class MainActivity extends AppCompatActivity {
 
         public void onTextChanged( CharSequence s, int start,
                                    int before, int after ) {
+        }
+    }
+
+    public void modifyLayout(Configuration newConfiguration)
+    {
+        if(newConfiguration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            setContentView(R.layout.activity_main_landscape);
+        }
+        else{
+            setContentView(R.layout.activity_main);
         }
     }
 }

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.keegan.android.tipcalculator2.MainActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/label_bill"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="20dp"
+        android:minWidth="100dp"
+        android:text="@string/label_bill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <EditText
+        android:id="@+id/amount_bill"
+        style="@style/HorizInputStyle"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/amount_bill_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/label_bill"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="337" />
+
+    <TextView
+        android:id="@+id/label_party"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_guest"
+        app:layout_constraintLeft_toLeftOf="@+id/label_bill"
+        app:layout_constraintRight_toRightOf="@+id/label_bill"
+        app:layout_constraintTop_toBottomOf="@+id/label_bill"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <EditText
+        android:id="@+id/party_size"
+        style="@style/HorizInputStyle"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/party_size_hint"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/label_party"
+        app:layout_constraintTop_toBottomOf="@+id/amount_bill"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="337" />
+
+    <TextView
+        android:id="@+id/label_tip_percent"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_tip_percent"
+        app:layout_constraintLeft_toLeftOf="@+id/label_party"
+        app:layout_constraintRight_toRightOf="@+id/label_party"
+        app:layout_constraintTop_toBottomOf="@+id/label_party"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <EditText
+        android:id="@+id/amount_tip_percent"
+        style="@style/HorizInputStyle"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/amount_tip_percent_hint"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/label_tip_percent"
+        app:layout_constraintTop_toBottomOf="@+id/party_size"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="337" />
+
+    <!-- red line -->
+    <View
+        android:id="@+id/red_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"
+        android:layout_marginTop="10dp"
+        android:background="#FF00"
+        app:layout_constraintLeft_toLeftOf="@id/label_bill"
+        app:layout_constraintRight_toRightOf="@id/amount_bill"
+        app:layout_constraintTop_toBottomOf="@+id/label_tip_percent"
+        tools:layout_conversion_wrapHeight="13"
+        tools:layout_conversion_wrapWidth="1080" />
+
+    <TextView
+        android:id="@+id/label_tip"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_tip"
+        app:layout_constraintLeft_toLeftOf="@+id/label_bill"
+        app:layout_constraintRight_toRightOf="@+id/label_bill"
+        app:layout_constraintTop_toBottomOf="@id/red_line"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <TextView
+        android:id="@+id/amount_tip"
+        style="@style/HorizOutputStyle"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/label_tip"
+        app:layout_constraintTop_toBottomOf="@+id/red_line"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
+
+    <TextView
+        android:id="@+id/label_total"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_total"
+        app:layout_constraintLeft_toLeftOf="@+id/label_bill"
+        app:layout_constraintRight_toRightOf="@+id/label_bill"
+        app:layout_constraintTop_toBottomOf="@id/label_tip"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <TextView
+        android:id="@+id/amount_total"
+        style="@style/HorizOutputStyle"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/label_total"
+        app:layout_constraintTop_toBottomOf="@+id/amount_tip"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
+
+    <TextView
+        android:id="@+id/tip_per_guest"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_tip_per_guest"
+        app:layout_constraintLeft_toLeftOf="@id/label_bill"
+        app:layout_constraintRight_toRightOf="@id/label_bill"
+        app:layout_constraintTop_toBottomOf="@id/label_total"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <TextView
+        android:id="@+id/amount_tip_per_guest"
+        style="@style/HorizOutputStyle"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/tip_per_guest"
+        app:layout_constraintTop_toBottomOf="@+id/amount_total"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
+
+    <TextView
+        android:id="@+id/total_per_guest"
+        style="@style/HorizLabelStyle"
+        android:layout_marginTop="15dp"
+        android:minWidth="100dp"
+        android:text="@string/label_total_per_guest"
+        app:layout_constraintLeft_toLeftOf="@id/label_bill"
+        app:layout_constraintRight_toRightOf="@id/label_bill"
+        app:layout_constraintTop_toBottomOf="@+id/tip_per_guest"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <TextView
+        android:id="@+id/amount_total_per_guest"
+        style="@style/HorizOutputStyle"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/total_per_guest"
+        app:layout_constraintTop_toBottomOf="@+id/amount_tip_per_guest"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
+</androidx.constraintlayout.widget.ConstraintLayout>

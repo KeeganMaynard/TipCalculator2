@@ -34,4 +34,27 @@
     <style name="ButtonStyle" parent="TextStyle">
         <item name = "background">@color/darkGreen</item>
     </style>
+
+    <style name="HorizTextStyle" parent="@android:style/TextAppearance">
+        <item name = "android:layout_width">wrap_content</item>
+        <item name = "android:layout_height">wrap_content</item>
+        <item name = "android:textSize">20dp</item>
+        <item name = "android:padding">5dp</item>
+    </style>
+
+    <style name="HorizLabelStyle" parent="HorizTextStyle">
+        <item name = "background">@color/lightGray</item>
+    </style>
+
+    <style name="HorizCenteredTextStyle" parent="HorizTextStyle">
+        <item name = "android:gravity">center</item>
+    </style>
+
+    <style name="HorizInputStyle" parent="HorizCenteredTextStyle">
+        <item name = "android:textColor">@color/darkBlue</item>
+    </style>
+
+    <style name="HorizOutputStyle" parent="HorizCenteredTextStyle">
+        <item name = "background">@color/lightGreen</item>
+    </style>
 </resources>
