@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">TipCalculator2</string>
     <string name="label_bill">Bill</string>
+    <string name="label_guest">Party</string>
     <string name="label_tip_percent">Tip (%)</string>
     <string name="label_tip">Tip ($)</string>
     <string name="label_total">Total</string>
+    <string name="label_tip_per_guest">Guest Tip ($)</string>
+    <string name="label_total_per_guest">Guest Total ($)</string>
 
     <string name="amount_bill_hint">Enter Bill</string>
     <string name="amount_tip_percent_hint">Enter Tip %</string>
+    <string name="party_size_hint">Enter Party Size</string>
     <string name="button_calc">CALCULATE</string>
 </resources>

@@ -1,11 +1,5 @@
 package com.keegan.android.tipcalculator2;
 
-//As we run the app, the tip amount is updated after any key is pressed
-// when either of the two EditText components is in focus (except when one of the EditTexts is empty;
-// in that case, we execute inside the catch block and the components are not updated).
-// Here we update the bill value and starts entering the tip percentage.
-// As soon as the user types a number, the tip and the total amounts are updated.
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,7 +7,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.text.NumberFormat;
 
@@ -22,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     public NumberFormat money = NumberFormat.getCurrencyInstance( );
     private EditText billEditText;
     private EditText tipEditText;
+    private EditText partyEditText;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -30,34 +24,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
 
         billEditText = ( EditText ) findViewById( R.id.amount_bill );
+        partyEditText = (EditText) findViewById(R.id.party_size);
         tipEditText = ( EditText ) findViewById( R.id.amount_tip_percent );
 
         TextChangeHandler tch = new TextChangeHandler( );
         billEditText.addTextChangedListener( tch );
+        partyEditText.addTextChangedListener(tch);
         tipEditText.addTextChangedListener(tch);
     }
 
     public void calculate( ) {
         String billString = billEditText.getText( ).toString( );
+        String partyString = partyEditText.getText().toString();
         String tipString = tipEditText.getText( ).toString( );
 
-        TextView tipTextView =
-                ( TextView ) findViewById( R.id.amount_tip );
-        TextView totalTextView =
-                (TextView) findViewById( R.id.amount_total );
+        TextView tipTextView = ( TextView ) findViewById( R.id.amount_tip );
+        TextView totalTextView = (TextView) findViewById( R.id.amount_total );
+        TextView guestTipTextView = (TextView) findViewById(R.id.amount_tip_per_guest);
+        TextView guestTotalTextView = (TextView) findViewById(R.id.amount_total_per_guest);
         try {
             // convert billString and tipString to floats
             float billAmount = Float.parseFloat( billString );
             int tipPercent = Integer.parseInt( tipString );
+            int partySize = Integer.parseInt(partyString);
             // update the Model
             tipCalc.setBill( billAmount );
+            tipCalc.setParty(partySize);
             tipCalc.setTip( .01f * tipPercent );
             // ask Model to calculate tip and total amounts
             float tip = tipCalc.tipAmount();
             float total = tipCalc.totalAmount();
+            float guestTip = tipCalc.guestTipAmount();
+            float guestTotal = tipCalc.guestTotalAmount();
             // update the View with formatted tip and total amounts
             tipTextView.setText( money.format( tip ) );
             totalTextView.setText( money.format( total ) );
+            guestTipTextView.setText(money.format(guestTip));
+            guestTotalTextView.setText(money.format(guestTotal));
         } catch( NumberFormatException nfe ) {
             // pop up an alert view here
         }

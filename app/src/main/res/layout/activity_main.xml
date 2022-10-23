@@ -21,7 +21,7 @@
     <EditText
         android:id="@+id/amount_bill"
         style="@style/InputStyle"
-        android:layout_marginStart="62dp"
+        android:layout_marginStart="60dp"
         android:layout_marginLeft="62dp"
         android:layout_marginTop="20dp"
         android:hint="@string/amount_bill_hint"
@@ -32,28 +32,54 @@
         tools:layout_conversion_wrapWidth="337" />
 
     <TextView
-        android:id="@+id/label_tip_percent"
+        android:id="@+id/label_party"
         style="@style/LabelStyle"
         android:layout_marginTop="20dp"
-        android:text="@string/label_tip_percent"
+        android:minWidth="120dp"
+        android:text="@string/label_guest"
         app:layout_constraintLeft_toLeftOf="@+id/label_bill"
         app:layout_constraintRight_toRightOf="@+id/label_bill"
         app:layout_constraintTop_toBottomOf="@+id/label_bill"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="315" />
+
+    <EditText
+        android:id="@+id/party_size"
+        style="@style/InputStyle"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/party_size_hint"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/label_party"
+        app:layout_constraintTop_toBottomOf="@+id/amount_bill"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="337" />
+
+    <TextView
+        android:id="@+id/label_tip_percent"
+        style="@style/LabelStyle"
+        android:layout_marginTop="20dp"
+        android:minWidth="120dp"
+        android:text="@string/label_tip_percent"
+        app:layout_constraintLeft_toLeftOf="@+id/label_party"
+        app:layout_constraintRight_toRightOf="@+id/label_party"
+        app:layout_constraintTop_toBottomOf="@+id/label_party"
         tools:layout_conversion_wrapHeight="152"
         tools:layout_conversion_wrapWidth="279" />
 
     <EditText
         android:id="@+id/amount_tip_percent"
         style="@style/InputStyle"
-        android:layout_marginStart="69dp"
-        android:layout_marginLeft="69dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/amount_tip_percent_hint"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/label_tip_percent"
-        app:layout_constraintTop_toBottomOf="@+id/amount_bill"
+        app:layout_constraintTop_toBottomOf="@+id/party_size"
         tools:layout_conversion_wrapHeight="152"
-        tools:layout_conversion_wrapWidth="398" />
+        tools:layout_conversion_wrapWidth="337" />
 
     <!-- red line -->
     <View
@@ -84,8 +110,8 @@
         style="@style/OutputStyle"
         android:layout_width="213dp"
         android:layout_height="68dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@+id/label_tip"
         app:layout_constraintTop_toBottomOf="@+id/red_line"
@@ -108,7 +134,7 @@
         style="@style/OutputStyle"
         android:layout_width="204dp"
         android:layout_height="66dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="60dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@+id/label_total"
@@ -116,13 +142,54 @@
         tools:layout_conversion_wrapHeight="152"
         tools:layout_conversion_wrapWidth="52" />
 
-    <Button
-        android:id="@+id/calculate_button"
-        style="@style/ButtonStyle"
+    <TextView
+        android:id="@+id/tip_per_guest"
+        style="@style/LabelStyle"
         android:layout_marginTop="20dp"
-        android:text="@string/button_calc"
-        app:layout_constraintTop_toBottomOf="@id/amount_total"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/label_tip_per_guest"
+        android:textSize="22dp"
+        app:layout_constraintLeft_toLeftOf="@id/label_bill"
+        app:layout_constraintRight_toRightOf="@id/label_bill"
+        app:layout_constraintTop_toBottomOf="@id/label_total"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="222" />
+
+    <TextView
+        android:id="@+id/amount_tip_per_guest"
+        style="@style/OutputStyle"
+        android:layout_width="204dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/tip_per_guest"
+        app:layout_constraintTop_toBottomOf="@+id/amount_total"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
+
+    <TextView
+        android:id="@+id/total_per_guest"
+        style="@style/LabelStyle"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_total_per_guest"
+        android:textSize="22dp"
+        app:layout_constraintLeft_toLeftOf="@id/label_bill"
+        app:layout_constraintRight_toRightOf="@id/label_bill"
+        app:layout_constraintTop_toBottomOf="@+id/tip_per_guest"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="222" />
+
+    <TextView
+        android:id="@+id/amount_total_per_guest"
+        style="@style/OutputStyle"
+        android:layout_width="204dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/total_per_guest"
+        app:layout_constraintTop_toBottomOf="@+id/amount_tip_per_guest"
+        tools:layout_conversion_wrapHeight="152"
+        tools:layout_conversion_wrapWidth="52" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
