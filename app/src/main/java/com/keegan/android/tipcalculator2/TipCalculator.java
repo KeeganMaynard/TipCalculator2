@@ -8,9 +8,10 @@ public class TipCalculator {
     //default constructor
     public TipCalculator(){}
 
-    public TipCalculator(float newTip, float newBill){
+    public TipCalculator(float newTip, float newBill, int newParty){
         setTip(newTip);
         setBill(newBill);
+        setParty(newParty);
     }
 
     public float getTip(){

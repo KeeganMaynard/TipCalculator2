@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
-        tipCalc = new TipCalculator( 0.17f, 100.0f );
+        tipCalc = new TipCalculator( 0.17f, 100.0f, 1 );
         Configuration config = getResources().getConfiguration();
         modifyLayout(config);
 
